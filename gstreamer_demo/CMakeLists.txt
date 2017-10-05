@@ -8,7 +8,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
 
 find_package( GStreamer-1.0 REQUIRED )
 find_package( GLIB REQUIRED )
-set(LIB_GSTREAMER ${GSTREAMER_LIBRARIES} ${GSTREAMER_APP_LIBRARIES}
+set(LIB_GSTREAMER ${GSTREAMER_LIBRARIES}  ${GSTREAMER_APP_LIBRARIES}
     -lgobject-2.0 ${GLIB_LIBRARIES}
 )
 ##############################################################################

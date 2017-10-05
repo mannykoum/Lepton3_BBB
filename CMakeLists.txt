@@ -17,4 +17,4 @@ add_subdirectory (grabber_lib)
 add_subdirectory (opencv_demo)
 
 # GStreamer demo
-# add_subdirectory (gstreamer_demo)
+add_subdirectory (gstreamer_demo)
