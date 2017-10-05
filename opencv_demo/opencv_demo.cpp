@@ -34,7 +34,7 @@ void close_handler(int s)
 
 int main (int argc, char *argv[])
 {
-    cout << "OpenCV demo for Lepton3 on BeagleBoard Blue" << endl;
+    cout << "OpenCV demo for Lepton3 on Raspberry Pi 3" << endl;
 
     // >>>>> Enable Ctrl+C
     struct sigaction sigIntHandler;
@@ -80,7 +80,7 @@ int main (int argc, char *argv[])
     bool writeFrame = writer.isOpened();
 #endif
 
-    Lepton3 lepton3( "/dev/spidev1.0", 1, deb_lvl );
+    Lepton3 lepton3( "/dev/spidev0.0", 1, deb_lvl );
     
     if( lepton3.enableRadiometry( !USE_RGB ) < 0)
     {
@@ -147,7 +147,9 @@ int main (int argc, char *argv[])
     StopWatch stpWtc;
 
     stpWtc.tic();
-
+	
+	cout << "Video capture initiated" << endl;
+	
     while(!close)
     {
         uint16_t min;
@@ -221,6 +223,7 @@ int main (int argc, char *argv[])
     }
 
     lepton3.stop();
+	cout << frameIdx << " frames captured" << endl;
 
 #ifdef SAVE_MJPEG
     writer.release();
